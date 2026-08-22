@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Basketball GOAT Comparison Tools</title>
+  <desc id="desc">Neutral court themed social preview for basketball comparison tools.</desc>
+  <rect width="1200" height="630" fill="#20304a"/>
+  <path d="M80 90h1040v450H80zM600 90v450" fill="none" stroke="#f7f3eb" stroke-opacity=".24" stroke-width="8"/>
+  <circle cx="600" cy="315" r="86" fill="none" stroke="#f7f3eb" stroke-opacity=".2" stroke-width="8"/>
+  <path d="M80 210h180a130 130 0 010 210H80M1120 210H940a130 130 0 000 210h180" fill="none" stroke="#f7f3eb" stroke-opacity=".2" stroke-width="8"/>
+  <path d="M250 280h88v70h-88M950 280h-88v70h88" fill="none" stroke="#f7f3eb" stroke-opacity=".26" stroke-width="6"/>
+  <text x="96" y="232" fill="#f3c563" font-family="Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="4">CHASING MAJORS</text>
+  <text x="96" y="326" fill="#ffffff" font-family="Arial, sans-serif" font-size="78" font-weight="800">Basketball GOAT</text>
+  <text x="96" y="405" fill="#ffffff" font-family="Arial, sans-serif" font-size="78" font-weight="800">Comparison Tools</text>
+  <text x="96" y="474" fill="#dce8dc" font-family="Arial, sans-serif" font-size="28">Career stats, peak seasons, awards, and era context.</text>
+</svg>
