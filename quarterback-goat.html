@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quarterback GOAT Comparison Tool | Chasing Majors</title>
+  <meta name="description" content="Compare all-time great quarterbacks across eras with career stats, best individual seasons, seven-year peaks, awards, titles, efficiency, rushing value, and Hall of Fame resumes.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://chasingmajors.github.io/comparison/quarterback-goat.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Chasing Majors Comparison Tools">
+  <meta property="og:title" content="Quarterback GOAT Comparison Tool">
+  <meta property="og:description" content="A cross-era quarterback comparison table with career stats, best seasons, seven-year peaks, awards, titles, and efficiency metrics.">
+  <meta property="og:url" content="https://chasingmajors.github.io/comparison/quarterback-goat.html">
+  <meta property="og:image" content="https://chasingmajors.github.io/comparison/assets/quarterback-goat-preview.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quarterback GOAT Comparison Tool">
+  <meta name="twitter:description" content="Compare all-time great quarterbacks by career stats, peak seasons, seven-year windows, and accolades.">
+  <meta name="twitter:image" content="https://chasingmajors.github.io/comparison/assets/quarterback-goat-preview.svg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Quarterback GOAT Comparison Tool",
+    "url": "https://chasingmajors.github.io/comparison/quarterback-goat.html",
+    "applicationCategory": "SportsApplication",
+    "operatingSystem": "Any",
+    "description": "Interactive cross-era quarterback comparison tool with career, best-season, peak-window, and accolade tables.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Chasing Majors"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #626262;
+      --line: #cad7c8;
+      --paper: #f1f5ec;
+      --panel: #fbfff6;
+      --navy: #17382d;
+      --red: #b33131;
+      --gold: #d99b2b;
+      --green: #157a6e;
+      --blue: #2867a5;
+      --shadow: 0 16px 50px rgba(33, 28, 20, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(23, 56, 45, .04) 1px, transparent 1px),
+        linear-gradient(rgba(23, 56, 45, .04) 1px, transparent 1px),
+        var(--paper);
+      background-size: 28px 28px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    header {
+      min-height: 78vh;
+      display: grid;
+      align-items: center;
+      padding: 56px clamp(18px, 5vw, 72px) 34px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(217, 155, 43, .25), transparent 28%),
+        linear-gradient(135deg, rgba(23, 72, 49, .96), rgba(14, 42, 33, .9)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='760' viewBox='0 0 1200 760'%3E%3Crect width='1200' height='760' fill='%23174831'/%3E%3Cpath d='M90 100h1020v560H90zM600 100v560' fill='none' stroke='%23f7f3eb' stroke-opacity='.26' stroke-width='8'/%3E%3Cpath d='M210 100v560M330 100v560M450 100v560M750 100v560M870 100v560M990 100v560' stroke='%23f7f3eb' stroke-opacity='.17' stroke-width='5'/%3E%3Cpath d='M105 155h60M105 220h60M105 285h60M105 350h60M105 415h60M105 480h60M105 545h60M1035 155h60M1035 220h60M1035 285h60M1035 350h60M1035 415h60M1035 480h60M1035 545h60' stroke='%23f7f3eb' stroke-opacity='.25' stroke-width='5'/%3E%3Cellipse cx='600' cy='380' rx='92' ry='54' fill='none' stroke='%23f7f3eb' stroke-opacity='.22' stroke-width='8'/%3E%3Cpath d='M538 380h124M600 326v108M560 350l80 60M640 350l-80 60' stroke='%23f7f3eb' stroke-opacity='.22' stroke-width='5'/%3E%3Cg stroke='%23f7f3eb' stroke-opacity='.18' stroke-width='6' fill='none' stroke-linecap='round'%3E%3Cpath d='M248 274l32 32m0-32l-32 32M920 452l32 32m0-32l-32 32M382 500l32 32m0-32l-32 32'/%3E%3Ccircle cx='296' cy='438' r='21'/%3E%3Ccircle cx='780' cy='276' r='21'/%3E%3Ccircle cx='850' cy='350' r='21'/%3E%3Cpath d='M318 438c108-76 242-94 372-52 64 20 118 56 160 106'/%3E%3Cpath d='M414 500c94-48 188-58 282-30'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: cover;
+      color: white;
+    }
+
+    .site-nav {
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      z-index: 40;
+      color: var(--navy);
+      font-size: .9rem;
+    }
+
+    .site-menu-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 8px;
+      background: rgba(251,255,246,.92);
+      color: var(--navy);
+      box-shadow: 0 10px 28px rgba(14, 42, 33, .16);
+      cursor: pointer;
+    }
+
+    .site-menu-button span,
+    .site-menu-button::before,
+    .site-menu-button::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      border-radius: 99px;
+      background: currentColor;
+    }
+
+    .site-menu-button::before { transform: translateY(-6px); }
+    .site-menu-button::after { transform: translateY(6px); }
+
+    .site-menu {
+      position: absolute;
+      top: 52px;
+      left: 0;
+      width: min(320px, calc(100vw - 28px));
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: rgba(251,255,246,.98);
+      box-shadow: var(--shadow);
+    }
+
+    .site-menu strong {
+      display: block;
+      padding: 8px 10px 10px;
+      color: var(--navy);
+      font-size: .76rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .site-menu a,
+    .site-menu span {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px;
+      border-top: 1px solid rgba(23, 56, 45, .12);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 850;
+    }
+
+    .site-menu a[aria-current="page"] {
+      background: rgba(21, 122, 110, .1);
+      color: var(--green);
+    }
+
+    .site-menu span {
+      color: var(--muted);
+      font-weight: 700;
+      cursor: default;
+    }
+
+    .site-menu small {
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .hero {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #f3c563;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    h1 {
+      margin: 18px 0 18px;
+      max-width: 980px;
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: rgba(255,255,255,.82);
+      font-size: clamp(1rem, 2.3vw, 1.3rem);
+      line-height: 1.55;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 12px;
+      margin-top: 36px;
+      width: min(760px, 100%);
+    }
+
+    .hero-stat {
+      border-top: 2px solid rgba(255,255,255,.26);
+      padding-top: 12px;
+    }
+
+    .hero-stat strong {
+      display: block;
+      color: #fff;
+      font-size: 1.65rem;
+    }
+
+    .hero-stat span {
+      color: rgba(255,255,255,.68);
+      font-size: .83rem;
+    }
+
+    main {
+      padding: 42px clamp(16px, 4vw, 58px) 58px;
+    }
+
+    section {
+      width: min(1260px, 100%);
+      margin: 0 auto 44px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      letter-spacing: 0;
+    }
+
+    .note {
+      max-width: 520px;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: .95rem;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      background: rgba(251,255,246,.86);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 1180px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 14px 13px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+      font-size: .93rem;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      color: #fff;
+      background: var(--navy);
+      font-size: .76rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    th:first-child,
+    td.category {
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      width: 170px;
+      min-width: 170px;
+      color: #fff;
+      background: var(--navy);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    th:first-child { z-index: 4; }
+    th .era { color: rgba(255,255,255,.84); }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:nth-child(even) { background: rgba(32,48,74,.035); }
+
+    td.best-cell {
+      background: rgba(217, 155, 43, .24);
+      box-shadow: inset 0 0 0 2px rgba(217, 155, 43, .42);
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .avg-rank-row td {
+      background: rgba(21, 122, 110, .12);
+      border-top: 2px solid rgba(21, 122, 110, .36);
+      border-bottom: 2px solid rgba(21, 122, 110, .36);
+      font-weight: 800;
+    }
+
+    .avg-rank-row td.category {
+      background: #157a6e;
+      color: #fff;
+    }
+
+    .group-row td {
+      background: #d99b2b;
+      color: #20304a;
+      border-bottom: 0;
+      padding: 10px 14px;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .player {
+      min-width: 180px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .era {
+      color: var(--muted);
+      font-size: .8rem;
+      display: block;
+      margin-top: 2px;
+      font-weight: 600;
+    }
+
+    .rings { font-weight: 800; color: var(--red); }
+    .mvp { font-weight: 800; color: var(--green); }
+
+    .sources {
+      background: rgba(251,255,246,.82);
+      border-top: 3px solid var(--navy);
+      padding: 20px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .sources .near-misses {
+      display: block;
+      margin-top: 8px;
+      margin-bottom: 14px;
+    }
+
+    .metric-key {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .key-item {
+      border-left: 4px solid var(--green);
+      background: rgba(251,255,246,.86);
+      padding: 13px 14px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .key-item strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .selector-shell {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .selector-panel {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(251,255,246,.88);
+      box-shadow: 0 10px 32px rgba(33, 28, 20, .08);
+    }
+
+    .menu-button {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(32, 48, 74, .24);
+      border-radius: 8px;
+      color: var(--navy);
+      background: var(--panel);
+      cursor: pointer;
+    }
+
+    .menu-button span,
+    .menu-button::before,
+    .menu-button::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 999px;
+    }
+
+    .menu-button span { margin: 3px 0; }
+
+    .selector-copy strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .selector-copy span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .selected-count {
+      margin-left: auto;
+      padding: 6px 10px;
+      border: 1px solid rgba(32, 48, 74, .16);
+      background: rgba(21, 122, 110, .1);
+      color: var(--green);
+      font-size: .82rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .player-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+    }
+
+    .selector-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 20;
+      width: min(760px, 100%);
+      max-height: min(68vh, 620px);
+      overflow: auto;
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: #fbfff6;
+      box-shadow: var(--shadow);
+    }
+
+    .selector-dropdown h3 {
+      margin: 0 0 4px;
+      color: var(--navy);
+      font-size: 1.05rem;
+      letter-spacing: 0;
+    }
+
+    .selector-dropdown p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.4;
+    }
+
+    .selector-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .utility-button {
+      border: 1px solid rgba(32, 48, 74, .22);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--navy);
+      padding: 8px 11px;
+      font: inherit;
+      font-size: .86rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .combo-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--navy);
+      font-size: .86rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .combo-control input {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--green);
+    }
+
+    .player-option {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: rgba(251,255,246,.88);
+      cursor: pointer;
+    }
+
+    .player-option input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--green);
+    }
+
+    .player-option strong {
+      display: block;
+      color: var(--navy);
+      font-size: .92rem;
+    }
+
+    .player-option span {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    [hidden] { display: none !important; }
+
+    .season-view { margin-top: 24px; }
+
+    .season-view h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+      letter-spacing: 0;
+    }
+
+    .season-view .note {
+      margin: 0 0 14px;
+      max-width: 720px;
+    }
+
+    .season-table table { min-width: 1180px; }
+
+    .range {
+      display: inline-grid;
+      gap: 2px;
+      color: var(--navy);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .range span:nth-child(2) {
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .sources a {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .share-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      border-top: 3px solid var(--green);
+      background: rgba(251,255,246,.86);
+      padding: 18px 20px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .share-section h2 {
+      margin-bottom: 5px;
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+    }
+
+    .share-section p {
+      margin: 0;
+      max-width: 680px;
+      font-size: .95rem;
+    }
+
+    .share-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .share-actions a,
+    .share-actions button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      border: 1px solid rgba(23, 56, 45, .18);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--navy);
+      padding: 8px 10px;
+      font: inherit;
+      font-size: .82rem;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .share-actions button.is-liked {
+      background: rgba(21, 122, 110, .12);
+      color: var(--green);
+      border-color: rgba(21, 122, 110, .35);
+    }
+
+    @media (max-width: 720px) {
+      header { min-height: 72vh; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .section-head { display: block; }
+      .selector-panel { align-items: flex-start; }
+      .selector-dropdown { width: 100%; }
+      .share-section { display: block; }
+      .share-actions { justify-content: flex-start; margin-top: 14px; }
+      .note { margin-top: 8px; }
+      main { padding-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Comparison tools">
+    <button class="site-menu-button" id="siteMenuButton" type="button" aria-expanded="false" aria-controls="siteMenu" aria-label="Open comparison navigation">
+      <span></span>
+    </button>
+    <div class="site-menu" id="siteMenu" hidden>
+      <strong>Comparison Tools</strong>
+      <a href="quarterback-goat.html" aria-current="page">Quarterbacks <small>Live</small></a>
+      <span>Running Backs <small>Next</small></span>
+      <span>NBA Generational GOAT <small>Audit</small></span>
+      <span>NBA Point Guards <small>Audit</small></span>
+      <span>NBA Shooting Guards <small>Audit</small></span>
+      <span>NBA Small Forwards <small>Audit</small></span>
+      <span>NBA Power Forwards <small>Audit</small></span>
+      <span>NBA Centers <small>Audit</small></span>
+    </div>
+  </nav>
+  <header>
+    <div class="hero">
+      <div class="kicker">Quarterback History Comparison</div>
+      <h1>Quarterback <span class="nowrap">GOAT</span> Comparison Tool</h1>
+      <p class="intro">Build a side-by-side view of the greatest quarterbacks across eras. Start with the core cross-era group, then add or remove optional passers to compare volume, efficiency, rushing value, rings, MVPs, seven-year peaks, and postseason legacy.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>35</strong><span>selectable quarterbacks</span></div>
+        <div class="hero-stat"><strong>14</strong><span>base quarterbacks checked on load</span></div>
+        <div class="hero-stat"><strong>6</strong><span>active or still-building resumes</span></div>
+        <div class="hero-stat"><strong>23</strong><span>Hall of Fame resumes in the pool</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-head">
+        <h2>Side-by-Side Career Scoreboard</h2>
+        <p class="note">Stats are regular-season career totals and rates, updated through the 2025 regular season for active quarterbacks. Parentheses show rank within the selected quarterbacks; tied quarterbacks share a rank. Gold cells mark the best selected value in that row.</p>
+      </div>
+      <div class="selector-shell">
+        <div class="selector-panel">
+          <button class="menu-button" id="playerMenuButton" type="button" aria-expanded="false" aria-controls="playerSelectorDropdown" aria-label="Open player selector">
+            <span></span>
+          </button>
+          <div class="selector-copy">
+            <strong>Player Pool</strong>
+            <span>Choose which era-defining quarterbacks appear in all three comparison tables.</span>
+          </div>
+          <div class="selected-count" id="selectedCount">14 selected</div>
+        </div>
+        <div class="selector-dropdown" id="playerSelectorDropdown" hidden>
+          <h3>Player Selector</h3>
+          <p>Checked quarterbacks appear in Career, Best Individual Season, and Seven-Year Peak.</p>
+          <div class="selector-actions">
+            <button class="utility-button" type="button" id="resetBaseButton">Reset to Base 14</button>
+            <label class="combo-control" for="activeToggle">
+              <input type="checkbox" id="activeToggle" checked>
+              Show active and still-building resumes
+            </label>
+          </div>
+          <div class="player-selector" id="playerSelector" aria-label="Player selector"></div>
+        </div>
+      </div>
+      <div class="table-wrap" aria-label="Vertical comparison table">
+        <table id="careerTable"><thead></thead><tbody></tbody></table>
+      </div>
+      <div class="metric-key" aria-label="Advanced metric definitions">
+        <div class="key-item"><strong>ANY/A</strong>Adjusted Net Yards per Attempt folds passing yards, sacks, touchdowns, and interceptions into one efficiency rate.</div>
+        <div class="key-item"><strong>Comebacks / Drives</strong>Fourth-quarter comebacks and game-winning drives are shown as N/A where older play-by-play context is incomplete.</div>
+      </div>
+      <div class="season-view">
+        <h3>Best Individual Season</h3>
+        <p class="note">Selected peak seasons based on passing production, efficiency, rushing value, awards, and historical impact.</p>
+        <div class="table-wrap season-table" aria-label="Best individual season comparison table">
+          <table id="bestTable"><thead></thead><tbody></tbody></table>
+        </div>
+      </div>
+      <div class="season-view">
+        <h3>Seven-Year Peak</h3>
+        <p class="note">Seven selected regular seasons where available. Counting stats are totals, rate stats are representative peak rates, and active or shorter-career players use their best available window.</p>
+        <div class="table-wrap season-table" aria-label="Seven-year peak comparison table">
+          <table id="peakTable"><thead></thead><tbody></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <section class="sources">
+      <strong>Base quarterbacks:</strong> Tom Brady, Patrick Mahomes, Peyton Manning, Joe Montana, Aaron Rodgers, Johnny Unitas, Brett Favre, Dan Marino, John Elway, Drew Brees, Roger Staubach, Steve Young, Fran Tarkenton, and Otto Graham. Optional quarterbacks include Bart Starr, Terry Bradshaw, Troy Aikman, Ben Roethlisberger, Russell Wilson, Lamar Jackson, Josh Allen, Joe Burrow, Ken Stabler, Warren Moon, Kurt Warner, Jim Kelly, Philip Rivers, Matt Ryan, Eli Manning, Y.A. Tittle, Sammy Baugh, Sid Luckman, Bob Griese, Len Dawson, and Ken Anderson.
+      <span class="near-misses"><strong>Near misses:</strong> Sonny Jurgensen, Norm Van Brocklin, Randall Cunningham, Donovan McNabb, Boomer Esiason, Tony Romo, Matthew Stafford, Cam Newton, Dak Prescott, Justin Herbert, C.J. Stroud, and Jalen Hurts.</span>
+      Career stats for active quarterbacks are updated through the 2025 regular season; honors include the 2026 Hall of Fame class and known postseason awards/selections through the 2025 season. MVPs, passing titles, best seasons, and peak windows are curated for cross-era comparison, so pre-merger honors may differ by selector. Modern efficiency, sack, comeback, and drive fields are shown as N/A where they are unavailable or not comparable for older-era quarterbacks. Team names, player names, and award names are used for identification and commentary only; all related marks belong to their respective owners. This independent fan-made comparison tool is not affiliated with, endorsed by, or sponsored by any league, team, player, estate, or rights holder. Creators, writers, and fans are welcome to reference, share, and discuss these pages with attribution. Last reviewed: August 22, 2026.
+    </section>
+    <section class="share-section" aria-labelledby="shareTitle">
+      <div>
+        <h2 id="shareTitle">Share This Page</h2>
+        <p>Send the comparison to a debate thread, group chat, or creator workflow. Instagram and some apps work best with Copy Link.</p>
+      </div>
+      <div class="share-actions" aria-label="Share actions">
+        <button type="button" id="likePageButton" aria-pressed="false">Like</button>
+        <button type="button" id="nativeShareButton">Share</button>
+        <a id="facebookShare" href="#" rel="noopener" target="_blank">Facebook</a>
+        <a id="twitterShare" href="#" rel="noopener" target="_blank">X</a>
+        <a id="linkedinShare" href="#" rel="noopener" target="_blank">LinkedIn</a>
+        <a id="redditShare" href="#" rel="noopener" target="_blank">Reddit</a>
+        <a id="emailShare" href="#">Email</a>
+        <button type="button" id="copyShareButton">Copy Link</button>
+      </div>
+    </section>
+  </main>
+  <script>
+    const siteMenuButton = document.querySelector("#siteMenuButton");
+    const siteMenu = document.querySelector("#siteMenu");
+    function setSiteMenuOpen(isOpen) {
+      siteMenu.hidden = !isOpen;
+      siteMenuButton.setAttribute("aria-expanded", String(isOpen));
+    }
+    siteMenuButton.addEventListener("click", event => {
+      event.stopPropagation();
+      setSiteMenuOpen(siteMenu.hidden);
+    });
+    siteMenu.addEventListener("click", event => event.stopPropagation());
+    document.addEventListener("click", () => setSiteMenuOpen(false));
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") setSiteMenuOpen(false);
+    });
+
+    const shareUrl = document.querySelector("link[rel='canonical']")?.href || window.location.href;
+    const shareTitle = document.title.replace(" | Chasing Majors", "");
+    const shareText = "Compare all-time great quarterbacks by career stats, peak seasons, and accolades.";
+    const encodedUrl = encodeURIComponent(shareUrl);
+    const encodedTitle = encodeURIComponent(shareTitle);
+    const encodedText = encodeURIComponent(shareText);
+    document.querySelector("#facebookShare").href = "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl;
+    document.querySelector("#twitterShare").href = "https://twitter.com/intent/tweet?url=" + encodedUrl + "&text=" + encodedTitle;
+    document.querySelector("#linkedinShare").href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl;
+    document.querySelector("#redditShare").href = "https://www.reddit.com/submit?url=" + encodedUrl + "&title=" + encodedTitle;
+    document.querySelector("#emailShare").href = "mailto:?subject=" + encodedTitle + "&body=" + encodedText + "%0A%0A" + encodedUrl;
+
+    const copyShareButton = document.querySelector("#copyShareButton");
+    const nativeShareButton = document.querySelector("#nativeShareButton");
+    async function copyShareLink() {
+      try {
+        if (!navigator.clipboard) throw new Error("Clipboard unavailable");
+        await navigator.clipboard.writeText(shareUrl);
+        copyShareButton.textContent = "Copied";
+      } catch {
+        copyShareButton.textContent = "Copy Failed";
+      }
+      setTimeout(() => { copyShareButton.textContent = "Copy Link"; }, 1600);
+    }
+    copyShareButton.addEventListener("click", copyShareLink);
+    nativeShareButton.addEventListener("click", async () => {
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
+        } else {
+          await copyShareLink();
+        }
+      } catch {
+        // Users can cancel native share sheets; no UI change needed.
+      }
+    });
+
+    const likePageButton = document.querySelector("#likePageButton");
+    const likeKey = "liked:" + new URL(shareUrl).pathname;
+    function renderLikeState() {
+      const liked = localStorage.getItem(likeKey) === "true";
+      likePageButton.classList.toggle("is-liked", liked);
+      likePageButton.setAttribute("aria-pressed", String(liked));
+      likePageButton.textContent = liked ? "Liked" : "Like";
+    }
+    likePageButton.addEventListener("click", () => {
+      const liked = localStorage.getItem(likeKey) === "true";
+      localStorage.setItem(likeKey, String(!liked));
+      renderLikeState();
+    });
+    renderLikeState();
+  </script>
+  <script src="quarterback-goat-data.js"></script>
+</body>
+</html>

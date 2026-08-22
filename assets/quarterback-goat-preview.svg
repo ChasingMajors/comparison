@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Quarterback GOAT Comparison Tool</title>
+  <desc id="desc">Green football field themed social preview for the quarterback comparison tool.</desc>
+  <rect width="1200" height="630" fill="#174831"/>
+  <path d="M80 90h1040v450H80zM600 90v450" fill="none" stroke="#f7f3eb" stroke-opacity=".24" stroke-width="8"/>
+  <path d="M200 90v450M320 90v450M440 90v450M760 90v450M880 90v450M1000 90v450" stroke="#f7f3eb" stroke-opacity=".14" stroke-width="5"/>
+  <g stroke="#f7f3eb" stroke-opacity=".2" stroke-width="7" fill="none" stroke-linecap="round">
+    <path d="M250 240l42 42m0-42l-42 42M890 350l42 42m0-42l-42 42"/>
+    <circle cx="340" cy="390" r="28"/>
+    <circle cx="800" cy="240" r="28"/>
+    <path d="M368 390c140-94 320-96 472 8"/>
+  </g>
+  <text x="96" y="232" fill="#f3c563" font-family="Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="4">CHASING MAJORS</text>
+  <text x="96" y="326" fill="#ffffff" font-family="Arial, sans-serif" font-size="78" font-weight="800">Quarterback GOAT</text>
+  <text x="96" y="405" fill="#ffffff" font-family="Arial, sans-serif" font-size="78" font-weight="800">Comparison Tool</text>
+  <text x="96" y="474" fill="#dce8dc" font-family="Arial, sans-serif" font-size="28">Career stats, peak seasons, awards, titles, and era context.</text>
+</svg>

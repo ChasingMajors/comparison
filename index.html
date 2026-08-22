@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comparison Tools | Chasing Majors</title>
+  <meta name="description" content="Interactive sports comparison tools from Chasing Majors, starting with a cross-era quarterback GOAT comparison.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://chasingmajors.github.io/comparison/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Chasing Majors Comparison Tools">
+  <meta property="og:title" content="Chasing Majors Comparison Tools">
+  <meta property="og:description" content="Interactive cross-era sports comparison tools for career stats, peak seasons, awards, and legacy debates.">
+  <meta property="og:url" content="https://chasingmajors.github.io/comparison/">
+  <meta property="og:image" content="https://chasingmajors.github.io/comparison/assets/quarterback-goat-preview.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chasing Majors Comparison Tools">
+  <meta name="twitter:description" content="Interactive sports comparison tools for stats, peaks, awards, and legacy debates.">
+  <meta name="twitter:image" content="https://chasingmajors.github.io/comparison/assets/quarterback-goat-preview.svg">
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #626262;
+      --paper: #f1f5ec;
+      --panel: #fbfff6;
+      --navy: #17382d;
+      --line: #cad7c8;
+      --green: #157a6e;
+      --gold: #d99b2b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(23, 56, 45, .04) 1px, transparent 1px),
+        linear-gradient(rgba(23, 56, 45, .04) 1px, transparent 1px),
+        var(--paper);
+      background-size: 28px 28px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      width: min(980px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: clamp(54px, 10vw, 110px) 0;
+    }
+    .kicker {
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 14px 0 16px;
+      color: var(--navy);
+      font-size: clamp(3rem, 9vw, 6.4rem);
+      line-height: .92;
+      letter-spacing: 0;
+    }
+    p {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.6;
+    }
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+    a, .soon {
+      display: block;
+      min-height: 132px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(251,255,246,.88);
+      color: var(--navy);
+      text-decoration: none;
+    }
+    a {
+      border-top: 4px solid var(--green);
+      box-shadow: 0 16px 50px rgba(33, 28, 20, .1);
+    }
+    .soon { border-top: 4px solid var(--gold); }
+    strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+    }
+    span {
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .tag {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--green);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="kicker">Chasing Majors</div>
+    <h1>Comparison Tools</h1>
+    <p>Interactive cross-era sports comparison pages for stats, peak seasons, awards, and legacy debates. The full homepage design is coming next; this hub keeps the live tool easy to find.</p>
+    <div class="tools" aria-label="Comparison tools">
+      <a href="quarterback-goat.html">
+        <strong>Quarterback GOAT Comparison</strong>
+        <span>Career scoreboard, best season, seven-year peak, and accomplishments.</span>
+        <span class="tag">Live</span>
+      </a>
+      <div class="soon">
+        <strong>Running Back GOAT Comparison</strong>
+        <span>Rushing, receiving, workload, efficiency, peak, and accolades.</span>
+        <span class="tag">Next</span>
+      </div>
+      <div class="soon">
+        <strong>Basketball Comparison Pages</strong>
+        <span>Generational and position-by-position pages will be added after audit.</span>
+        <span class="tag">Audit Queue</span>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
