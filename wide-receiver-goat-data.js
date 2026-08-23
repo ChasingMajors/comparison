@@ -149,7 +149,7 @@ const players = [
     p: { start: "1999", end: "2006", games: 110, rec: 826, recYds: 10919, recTd: 95, ypr: 13.2, recYpg: 99.3, recPg: 7.5, scrimYds: 10919, scrimTd: 95, awards: "1 title, 3 First-Team All-Pro, 8 Pro Bowls" },
     a: { mvp: 0, opoy: 0, champs: 1, sbmvp: 0, ap1: 3, pb: 8, yardTitles: 2, recTitles: 2, tdTitles: 1, triple: 0 }
   },
-  { id: "fitzgerald", name: "Larry Fitzgerald", base: true, team: "Cardinals", era: "2004-20", gen: "Hands / longevity icon", first: 2004, active: false, hof: false,
+  { id: "fitzgerald", name: "Larry Fitzgerald", base: true, team: "Cardinals", era: "2004-20", gen: "Hands / longevity icon", first: 2004, active: false, hof: true,
     c: { career: "17 seasons", games: 263, starts: 261, rec: 1432, recYds: 17492, recTd: 121, ypr: 12.2, scrimYds: 17492, scrimTd: 121, retTd: 0, allYds: 17492, recYpg: 66.5, recPg: 5.4, catchPct: 62.4, fum: 12 },
     b: { season: "2008", games: 16, rec: 96, recYds: 1431, recTd: 12, ypr: 14.9, recYpg: 89.4, recPg: 6.0, scrimYds: 1431, scrimTd: 12, awards: "First-Team All-Pro" },
     p: { start: "2005", end: "2011", games: 107, rec: 613, recYds: 8817, recTd: 65, ypr: 14.4, recYpg: 82.4, recPg: 5.7, scrimYds: 8817, scrimTd: 65, awards: "1 First-Team All-Pro, 6 Pro Bowls" },
