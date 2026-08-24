@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chasingmajors.github.io/comparison/sitemap.xml
+Sitemap: https://legacyranker.com/sitemap.xml
