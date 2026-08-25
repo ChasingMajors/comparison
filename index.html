@@ -49,6 +49,79 @@
       margin: 0 auto;
       padding: clamp(34px, 7vw, 76px) 0 64px;
     }
+    .site-nav {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 20;
+    }
+    .site-menu-button {
+      position: relative;
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 42px;
+      border: 1px solid rgba(23, 56, 45, .18);
+      border-radius: 8px;
+      background: rgba(251,255,246,.94);
+      box-shadow: 0 14px 34px rgba(33, 28, 20, .12);
+      cursor: pointer;
+    }
+    .site-menu-button span,
+    .site-menu-button::before,
+    .site-menu-button::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--navy);
+    }
+    .site-menu-button::before,
+    .site-menu-button::after {
+      position: absolute;
+    }
+    .site-menu-button::before { transform: translateY(-6px); }
+    .site-menu-button::after { transform: translateY(6px); }
+    .site-menu {
+      position: absolute;
+      right: 0;
+      top: 52px;
+      width: min(290px, calc(100vw - 36px));
+      padding: 10px;
+      border: 1px solid rgba(23, 56, 45, .18);
+      border-radius: 8px;
+      background: rgba(251,255,246,.98);
+      box-shadow: 0 20px 60px rgba(33, 28, 20, .16);
+    }
+    .site-menu strong {
+      display: block;
+      margin: 4px 8px 8px;
+      color: var(--navy);
+      font-size: .76rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .site-menu a {
+      display: flex;
+      align-items: center;
+      min-height: auto;
+      margin: 0;
+      padding: 10px 12px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      box-shadow: none;
+      color: var(--navy);
+      font-size: .92rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .site-menu a:hover,
+    .site-menu a[aria-current="page"] {
+      background: rgba(21, 122, 110, .1);
+      color: var(--green);
+    }
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.04fr) minmax(300px, .72fr);
@@ -134,7 +207,7 @@
     .hero-board {
       position: relative;
       overflow: hidden;
-      min-height: 410px;
+      min-height: 460px;
       border: 1px solid rgba(23, 56, 45, .18);
       border-radius: 8px;
       background:
@@ -161,63 +234,113 @@
       border: 5px solid rgba(255,255,255,.32);
       border-radius: 50%;
     }
-    .matchup-ticket {
+    .debate-board {
       position: absolute;
-      left: 28px;
-      right: 28px;
-      bottom: 28px;
+      inset: 28px;
       z-index: 1;
       display: grid;
-      gap: 10px;
-      padding: 18px;
+      align-content: space-between;
+      gap: 14px;
+      padding: 20px;
       border: 1px solid rgba(255,255,255,.28);
       border-radius: 8px;
-      background: rgba(251,255,246,.93);
+      background: rgba(251,255,246,.94);
       color: var(--navy);
     }
-    .matchup-ticket strong {
-      margin: 0;
-      font-size: 1.06rem;
+    .board-topline {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
     }
-    .matchup-row {
+    .board-topline span {
+      color: var(--green);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .board-topline strong {
+      margin: 0;
+      max-width: 210px;
+      color: var(--navy);
+      font-size: clamp(1.5rem, 3vw, 2.35rem);
+      line-height: .96;
+      text-align: right;
+    }
+    .sport-matchup {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 10px;
-      color: var(--navy);
+      gap: 14px;
+    }
+    .sport-side {
+      min-height: 116px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 8px;
+      padding: 18px 12px;
+      border: 1px solid rgba(23, 56, 45, .14);
+      border-radius: 8px;
+      background:
+        linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),
+        var(--paper);
+    }
+    .sport-mark {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1rem;
       font-weight: 900;
+      letter-spacing: .06em;
     }
-    .matchup-row span {
+    .football .sport-mark { background: var(--red); }
+    .basketball .sport-mark { background: var(--gold); color: var(--navy); }
+    .sport-side strong {
+      margin: 0;
       color: var(--navy);
+      font-size: 1rem;
+      text-align: center;
     }
-    .matchup-row .vs {
+    .sport-side span {
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .versus {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 2px solid rgba(179, 49, 49, .3);
+      border-radius: 50%;
+      background: #fff;
       color: var(--red);
-      font-size: .82rem;
+      font-size: .78rem;
+      font-weight: 900;
       letter-spacing: .08em;
     }
-    .score-grid {
-      position: absolute;
-      inset: 34px 32px auto;
-      z-index: 1;
-      display: block;
+    .debate-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
     }
-    .score-cell {
-      min-height: 126px;
-      padding: 18px;
-      border-radius: 8px;
-      background: rgba(251,255,246,.9);
-      border: 1px solid rgba(255,255,255,.4);
-    }
-    .score-cell strong {
-      margin: 0;
-      color: var(--red);
-      font-size: clamp(2rem, 4.2vw, 3.6rem);
-      line-height: .92;
-    }
-    .score-cell span {
-      display: block;
-      margin-top: 10px;
-      font-size: .82rem;
+    .debate-metrics span {
+      min-height: 34px;
+      display: grid;
+      place-items: center;
+      padding: 6px;
+      border-radius: 6px;
+      background: rgba(21, 122, 110, .1);
+      color: var(--navy);
+      font-size: .68rem;
       font-weight: 900;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -300,15 +423,36 @@
       }
       .brand-lockup { gap: 10px; }
       .goat-logo { width: 50px; height: 50px; }
-      .hero-board { min-height: 330px; }
-      .score-grid { inset: 22px 20px auto; }
-      .score-cell { min-height: 104px; padding: 14px; }
-      .score-cell strong { font-size: 2.2rem; }
-      .matchup-ticket { left: 20px; right: 20px; bottom: 20px; }
+      .hero-board { min-height: 390px; }
+      .debate-board { inset: 20px; padding: 16px; }
+      .board-topline { display: grid; }
+      .board-topline strong { text-align: left; }
+      .sport-matchup { gap: 8px; }
+      .sport-side { min-height: 118px; padding: 14px 8px; }
+      .sport-mark { width: 46px; height: 46px; font-size: .88rem; }
+      .versus { width: 36px; height: 36px; }
     }
   </style>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Comparison tools">
+    <button class="site-menu-button" id="siteMenuButton" type="button" aria-expanded="false" aria-controls="siteMenu" aria-label="Open comparison navigation">
+      <span></span>
+    </button>
+    <div class="site-menu" id="siteMenu" hidden>
+      <strong>Legacy Ranker</strong>
+      <a href="/comparison/" aria-current="page">Home</a>
+      <a href="/comparison/football/quarterbacks/">Quarterbacks</a>
+      <a href="/comparison/football/running-backs/">Running Backs</a>
+      <a href="/comparison/football/wide-receivers/">Wide Receivers</a>
+      <a href="/comparison/basketball/all-time/">Basketball GOATs</a>
+      <a href="/comparison/basketball/point-guards/">Point Guards</a>
+      <a href="/comparison/basketball/shooting-guards/">Shooting Guards</a>
+      <a href="/comparison/basketball/small-forwards/">Small Forwards</a>
+      <a href="/comparison/basketball/power-forwards/">Power Forwards</a>
+      <a href="/comparison/basketball/centers/">Centers</a>
+    </div>
+  </nav>
   <main>
     <section class="hero" aria-label="Legacy Ranker sports debate hub">
       <div>
@@ -328,14 +472,32 @@
         </div>
       </div>
       <div class="hero-board" aria-hidden="true">
-        <div class="score-grid">
-          <div class="score-cell"><strong>Fuel the GOAT Debate</strong><span>Football and basketball comparison boards</span></div>
-        </div>
-        <div class="matchup-ticket">
-          <strong>Featured Debate Card</strong>
-          <div class="matchup-row"><span>Peak</span><span class="vs">VS</span><span>Longevity</span></div>
-          <div class="matchup-row"><span>Rings</span><span class="vs">VS</span><span>Stats</span></div>
-          <div class="matchup-row"><span>Era</span><span class="vs">VS</span><span>Resume</span></div>
+        <div class="debate-board">
+          <div class="board-topline">
+            <span>Legacy Ranker Matchup</span>
+            <strong>Build Your GOAT Case</strong>
+          </div>
+          <div class="sport-matchup">
+            <div class="sport-side football">
+              <div class="sport-mark">FB</div>
+              <strong>Football Legends</strong>
+              <span>Quarterbacks to receivers</span>
+            </div>
+            <div class="versus">VS</div>
+            <div class="sport-side basketball">
+              <div class="sport-mark">BB</div>
+              <strong>Basketball Icons</strong>
+              <span>All-time and positions</span>
+            </div>
+          </div>
+          <div class="debate-metrics">
+            <span>Career</span>
+            <span>Peak</span>
+            <span>Awards</span>
+            <span>Titles</span>
+            <span>Stats</span>
+            <span>Era</span>
+          </div>
         </div>
       </div>
     </section>
@@ -394,5 +556,25 @@
       </a>
     </div>
   </main>
+  <script>
+    const siteMenuButton = document.querySelector("#siteMenuButton");
+    const siteMenu = document.querySelector("#siteMenu");
+
+    function setSiteMenuOpen(isOpen) {
+      siteMenu.hidden = !isOpen;
+      siteMenuButton.setAttribute("aria-expanded", String(isOpen));
+    }
+
+    siteMenuButton.addEventListener("click", event => {
+      event.stopPropagation();
+      setSiteMenuOpen(siteMenu.hidden);
+    });
+
+    siteMenu.addEventListener("click", event => event.stopPropagation());
+    document.addEventListener("click", () => setSiteMenuOpen(false));
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") setSiteMenuOpen(false);
+    });
+  </script>
 </body>
 </html>
